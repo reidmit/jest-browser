@@ -30,7 +30,6 @@ async function setup() {
 
 async function teardown() {
   log('Closing browser...');
-
   await browser.close();
   rimraf.sync(TEMP_DIR);
 }

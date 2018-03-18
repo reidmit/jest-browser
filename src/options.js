@@ -3,7 +3,8 @@ const merge = require('deepmerge');
 const defaultOptions = {
   executablePath: undefined,
   headless: true,
-  verbose: true
+  verbose: true,
+  jQuery: '$'
 };
 
 const givenOptions = require('../browser.config');
