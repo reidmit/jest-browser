@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test-watch": "jest --watch",
+    "test-watch": "jest --watch --no-cache",
     "build": "rimraf dist && babel src -d dist",
     "prepare": "npm run build",
     "release-minor": "release-it minor --github.release"
