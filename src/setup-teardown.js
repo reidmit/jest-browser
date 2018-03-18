@@ -12,14 +12,15 @@ const { TEMP_DIR } = require('./constants');
 let browser;
 
 module.exports.setup = async function() {
-  if (options.executable) log(`Using ${options.executable}`);
+  if (options.executablePath) log(`Using ${options.executablePath}`);
+  else log(`Using ${puppeteer.executablePath()}`);
 
   if (options.headless) log('Launching headless browser...');
   else log('Launching browser window...');
 
   browser = await puppeteer.launch({
     headless: options.headless,
-    executablePath: options.executable || undefined
+    executablePath: options.executablePath || undefined
   });
 
   mkdirp.sync(TEMP_DIR);
