@@ -1,2 +1,2 @@
-const { setup } = require('./src/setup-teardown');
+const setup = require('./dist/setup-teardown').setup;
 module.exports = setup;

@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 const installHelpers = require('./install-helpers');
-const { TEMP_DIR } = require('./constants');
+const { TEMP_DIR } = require('./utils');
 
 class PuppeteerEnvironment extends NodeEnvironment {
   constructor(config) {

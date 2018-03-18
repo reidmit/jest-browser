@@ -1,5 +1,9 @@
-module.exports = global => {
-  require('./helpers/go-to')(global);
-  require('./helpers/select')(global);
-  require('./helpers/sleep')(global);
+const installGoTo = require('./helpers/go-to');
+const installSelect = require('./helpers/select');
+const installSleep = require('./helpers/sleep');
+
+module.exports = function(global) {
+  installGoTo(global);
+  installSelect(global);
+  installSleep(global);
 };

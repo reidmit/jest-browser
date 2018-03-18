@@ -1,6 +1,10 @@
 module.exports = {
-  globalSetup: './setup.js',
-  globalTeardown: './teardown.js',
+  globalSetup: './src/setup.js',
+  globalTeardown: './src/teardown.js',
   testEnvironment: './src/environment.js',
-  testRegex: '(/(__test[s]?__|spec[s]?|test[s]?)/.*|(\\.|/)(test|spec))\\.jsx?$'
+  testRegex:
+    '(/(__test[s]?__|spec[s]?|test[s]?)/.*|(\\.|/)(test|spec))\\.jsx?$',
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest'
+  }
 };

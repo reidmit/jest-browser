@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "build": "rimraf dist && babel src -d dist",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "chalk": "^2.3.2",
@@ -16,5 +18,10 @@
     "mkdirp": "^0.5.1",
     "puppeteer": "^1.2.0",
     "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
   }
 }

@@ -1,6 +1,6 @@
 const { helpers } = require('../options');
 
-module.exports = _ => {
+module.exports = function(_) {
   if (!helpers.select) return;
 
   _[helpers.select] = (selector, opt) => {

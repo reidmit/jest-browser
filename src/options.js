@@ -1,4 +1,5 @@
 const merge = require('deepmerge');
+const givenOptions = require('../browser.config');
 
 const defaultOptions = {
   executablePath: undefined,
@@ -13,7 +14,5 @@ const defaultOptions = {
     sleepMs: 'sleepMs'
   }
 };
-
-const givenOptions = require('../browser.config');
 
 module.exports = merge(defaultOptions, givenOptions);

@@ -1,7 +1,7 @@
 const { helpers } = require('../options');
 
-module.exports = _ => {
-  const sleepMs = async milliseconds => {
+module.exports = function(_) {
+  async function sleepMs(milliseconds) {
     let currentTimeout;
 
     if (_.jasmine) {
@@ -16,7 +16,7 @@ module.exports = _ => {
     if (_.jasmine) {
       _.jasmine.DEFAULT_TIMEOUT_INTERVAL = currentTimeout;
     }
-  };
+  }
 
   if (helpers.sleepMs) {
     _[helpers.sleepMs] = sleepMs;
