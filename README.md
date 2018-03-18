@@ -1,3 +1,7 @@
 # jest-browser
 
-Experimenting with running Jest tests in a browser, using Puppeteer.
+Run Jest tests in a real browser (Chrome)!
+
+```bash
+yarn go
+```
