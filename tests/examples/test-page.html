@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <title>browser test!</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      btn.addEventListener('click', () => {
+        output.innerHTML = 'clicked';
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root">hello, world</div>
+
+  <button id="btn">click me</button>
+
+  <textarea id="output"></textarea>
+
+  <a id="link" href="example.com">a link</a>
+</body>
+
+</html>

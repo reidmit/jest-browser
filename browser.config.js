@@ -1,5 +1,7 @@
 module.exports = {
-  headless: false,
+  // delayMs: 1000,
+
+  // headless: false,
 
   verbose: true,
 

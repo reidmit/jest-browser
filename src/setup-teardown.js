@@ -20,7 +20,8 @@ async function setup() {
 
   browser = await puppeteer.launch({
     headless: options.headless,
-    executablePath: options.executablePath || undefined
+    executablePath: options.executablePath,
+    slowMo: options.delayMs
   });
 
   mkdirp.sync(TEMP_DIR);

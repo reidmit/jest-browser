@@ -6,7 +6,7 @@ const os = require('os');
 const path = require('path');
 const { TEMP_DIR } = require('./constants');
 const { log } = require('./utils');
-const { assignGlobals } = require('./globals');
+const installHelpers = require('./install-helpers');
 
 class PuppeteerEnvironment extends NodeEnvironment {
   constructor(config) {
@@ -14,9 +14,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async setup() {
-    log('Setting up test environment...\n');
-
     await super.setup();
+    log('Setting up test environment...\n');
 
     const browserWSEndpoint = fs.readFileSync(
       path.join(TEMP_DIR, 'wsEndpoint'),
@@ -27,23 +26,21 @@ class PuppeteerEnvironment extends NodeEnvironment {
       throw new Error('browserWSEndpoint not found');
     }
 
-    this.global.browser = await puppeteer.connect({
+    const browser = await puppeteer.connect({
       browserWSEndpoint
     });
 
-    this.global.page = await this.global.browser.newPage();
+    const activePage = (await browser.pages())[0];
+    const page = activePage || (await browser.newPage());
 
-    await assignGlobals(this.global);
+    this.global.browser = browser;
+    this.global.page = page;
+    installHelpers(this.global);
   }
 
   async teardown() {
     log('Tearing down test environment...\n');
-    await this.global.page.close();
     await super.teardown();
-  }
-
-  runScript(script) {
-    return super.runScript(script);
   }
 }
 

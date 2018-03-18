@@ -4,7 +4,14 @@ const defaultOptions = {
   executablePath: undefined,
   headless: true,
   verbose: true,
-  jQuery: '$'
+  delayMs: undefined,
+  helpers: {
+    goTo: 'goTo',
+    select: '$',
+    selectAll: '$$',
+    sleep: 'sleep',
+    sleepMs: 'sleepMs'
+  }
 };
 
 const givenOptions = require('../browser.config');
