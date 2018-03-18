@@ -11,7 +11,7 @@ const { TEMP_DIR } = require('./constants');
 
 let browser;
 
-module.exports.setup = async function() {
+async function setup() {
   if (options.executablePath) log(`Using ${options.executablePath}`);
   else log(`Using ${puppeteer.executablePath()}`);
 
@@ -26,11 +26,13 @@ module.exports.setup = async function() {
   mkdirp.sync(TEMP_DIR);
 
   fs.writeFileSync(path.join(TEMP_DIR, 'wsEndpoint'), browser.wsEndpoint());
-};
+}
 
-module.exports.teardown = async function() {
+async function teardown() {
   log('Closing browser...');
 
   await browser.close();
   rimraf.sync(TEMP_DIR);
-};
+}
+
+module.exports = { setup, teardown };
