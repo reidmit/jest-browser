@@ -10,7 +10,7 @@
     "test-watch": "jest --watch",
     "build": "rimraf dist && babel src -d dist",
     "prepare": "npm run build",
-    "release-minor": "release-it minor"
+    "release-minor": "release-it minor --github.release"
   },
   "dependencies": {
     "chalk": "^2.3.2",
