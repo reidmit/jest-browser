@@ -10,6 +10,14 @@ describe('select ($)', () => {
       expect(await $('#root')).toBeTruthy();
     });
 
+    it('selects existing elements 2', async () => {
+      await expect($('#root')).resolves.toBeTruthy();
+    });
+
+    it('selects existing elements 3', () => {
+      return expect($('#root')).resolves.toBeTruthy();
+    });
+
     it('returns null for non-existent elements', async () => {
       expect(await $('#something-else')).toBeNull();
     });
