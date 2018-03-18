@@ -4,7 +4,8 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const options = require('./options');
+const { TEMP_DIR } = require('./constants');
+const { log } = require('./utils');
 
 class PuppeteerEnvironment extends NodeEnvironment {
   constructor(config) {
@@ -12,12 +13,12 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async setup() {
-    console.log('\n' + chalk.yellow('Setting up test environment...'));
+    log('Setting up test environment...\n');
 
     await super.setup();
 
     const wsEndpoint = fs.readFileSync(
-      path.join(options.tempDir, 'wsEndpoint'),
+      path.join(TEMP_DIR, 'wsEndpoint'),
       'utf8'
     );
 
@@ -25,13 +26,17 @@ class PuppeteerEnvironment extends NodeEnvironment {
       throw new Error('wsEndpoint not found');
     }
 
-    this.global.__BROWSER__ = await puppeteer.connect({
+    this.global.browser = await puppeteer.connect({
       browserWSEndpoint: wsEndpoint
     });
+
+    this.global.page = await this.global.browser.newPage();
   }
 
   async teardown() {
-    console.log('\n' + chalk.yellow('Tearing down test environment...'));
+    log('Tearing down test environment...\n');
+
+    await this.global.page.close();
 
     await super.teardown();
   }
