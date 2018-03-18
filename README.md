@@ -49,7 +49,7 @@ Whether or not to run headless Chrome/Chromium (if false, it'll open a new windo
 
 A path to an installed version of Chrome or Chromium somewhere on your computer. If not provided, the tests will use the bundled version of Chromium that ships with the `puppeteer` module.
 
-### `verbose` (default: false)
+#### `verbose` (default: false)
 
 Whether or not to log some information as the tests are running. Might be useful for debugging, if something isn't working right.
 
