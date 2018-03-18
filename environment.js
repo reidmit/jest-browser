@@ -12,7 +12,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async setup() {
-    console.log(chalk.yellow('Setup Test Environment.'));
+    console.log('\n' + chalk.yellow('Setting up test environment...'));
 
     await super.setup();
 
@@ -31,7 +31,7 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async teardown() {
-    console.log(chalk.yellow('Teardown Test Environment.'));
+    console.log('\n' + chalk.yellow('Tearing down test environment...'));
 
     await super.teardown();
   }

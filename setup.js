@@ -14,7 +14,10 @@ module.exports = async function() {
     executablePath: options.executable || undefined
   });
 
+  const page = await browser.newPage();
+
   global.__BROWSER__ = browser;
+  global.__PAGE__ = page; // = fn => page.evaluate(fn);
 
   mkdirp.sync(options.tempDir);
 
