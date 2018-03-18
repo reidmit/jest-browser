@@ -1,6 +1,6 @@
 {
   "name": "jest-browser",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Run Jest tests in a real browser!",
   "main": "index.js",
   "author": "Reid Mitchell",
