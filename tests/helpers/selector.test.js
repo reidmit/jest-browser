@@ -1,8 +1,8 @@
 const path = require('path');
 
-describe('$ helper', () => {
+describe('selector ($)', () => {
   beforeEach(async () => {
-    await goTo(path.resolve(__dirname, './examples/test-page.html'));
+    await goTo(path.resolve(__dirname, '../examples/test-page.html'));
   });
 
   it('selects existing elements', async () => {

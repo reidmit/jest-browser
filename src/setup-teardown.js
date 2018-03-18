@@ -15,8 +15,8 @@ async function setup() {
   if (options.executablePath) log(`Using ${options.executablePath}`);
   else log(`Using ${puppeteer.executablePath()}`);
 
-  if (options.headless) log('Launching headless browser...');
-  else log('Launching browser window...');
+  if (options.headless) log('Launching headless browser...\n');
+  else log('Launching browser window...\n');
 
   browser = await puppeteer.launch({
     headless: options.headless,
@@ -30,7 +30,7 @@ async function setup() {
 }
 
 async function teardown() {
-  log('Closing browser...');
+  log('Closing browser...\n');
   await browser.close();
   rimraf.sync(TEMP_DIR);
 }

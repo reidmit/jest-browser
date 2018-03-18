@@ -1,12 +1,9 @@
-const chalk = require('chalk');
 const NodeEnvironment = require('jest-environment-node');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
-const { TEMP_DIR } = require('./constants');
-const { log } = require('./utils');
 const installHelpers = require('./install-helpers');
+const { TEMP_DIR } = require('./constants');
 
 class PuppeteerEnvironment extends NodeEnvironment {
   constructor(config) {
@@ -15,7 +12,6 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
   async setup() {
     await super.setup();
-    log('Setting up test environment...\n');
 
     const browserWSEndpoint = fs.readFileSync(
       path.join(TEMP_DIR, 'wsEndpoint'),
@@ -35,12 +31,8 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     this.global.browser = browser;
     this.global.page = page;
-    installHelpers(this.global);
-  }
 
-  async teardown() {
-    log('Tearing down test environment...\n');
-    await super.teardown();
+    installHelpers(this.global);
   }
 }
 
