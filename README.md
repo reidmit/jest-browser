@@ -1,12 +1,12 @@
 # jest-browser
 
+_NOTE: still a work-in-progress!_
+
 Run Jest tests in a real browser! No more [fake DOM](https://github.com/jsdom/jsdom)! This Jest environment uses [puppeteer](https://github.com/GoogleChrome/puppeteer) to run tests in both headless and windowed Chrome/Chromium.
 
 It also adds a bunch of helpful global functions for manipulating/asserting against real DOM nodes.
 
 ## Usage
-
-_still a work-in-progress, but it'll be something like this..._
 
 Assuming you already have a project with some Jest tests (like one created with Create React App):
 
