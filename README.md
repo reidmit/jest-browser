@@ -14,17 +14,15 @@ Assuming you already have a project with some Jest tests (like one created with 
 yarn add -D jest-browser
 ```
 
-In your `package.json`, under a top-level key called `"jest"`, you'll need to set these three options:
+In your `package.json`, under a top-level key called `"jest"`, you'll need to set this option:
 
 ```json
 "jest": {
-  "globalSetup": "jest-browser/setup",
-  "globalTeardown": "jest-browser/teardown",
-  "testEnvironment": "jest-browser"
+  "preset": "jest-browser"
 }
 ```
 
-If you're using Create React App, you'll have to eject in order to set those configuration options.
+If you're using Create React App, you'll have to eject in order to set the `"preset"` option.
 
 ## Configuration
 
