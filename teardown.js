@@ -1,2 +1,2 @@
-const teardown = require('./src/setup-teardown').teardown;
+const teardown = require('./src/teardown');
 module.exports = teardown;

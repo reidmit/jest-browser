@@ -1,0 +1,5 @@
+{
+  "globalSetup": "jest-browser/setup",
+  "globalTeardown": "jest-browser/teardown",
+  "testEnvironment": "jest-browser"
+}

@@ -11,8 +11,6 @@ class PuppeteerEnvironment extends NodeEnvironment {
   }
 
   async setup() {
-    await super.setup();
-
     const browserWSEndpoint = fs.readFileSync(
       path.join(TEMP_DIR, 'wsEndpoint'),
       'utf8'
@@ -31,8 +29,13 @@ class PuppeteerEnvironment extends NodeEnvironment {
 
     this.global.browser = browser;
     this.global.page = page;
+    console.log('setting global.page', page);
 
     installHelpers(this.global);
+  }
+
+  async dispose() {
+    await this.teardown();
   }
 }
 
