@@ -19,5 +19,9 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reid47/jest-browser"
   }
 }
